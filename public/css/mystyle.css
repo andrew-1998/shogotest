@@ -1,0 +1,66 @@
+.container {
+	width: 900px;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+h1 {
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+}
+
+h2 {
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+
+a.card {
+	display: block;
+	width: 180px;
+	margin: 10px;	
+}
+
+.admin_card {
+	width: 180px;
+	margin: 10px;
+}
+
+img.img_pic {
+	display: block;
+	width: 180px;
+}
+
+img.full_pic {
+	display: block;
+	width: 900px;
+}
+
+.submit {
+	width: 250px;
+	border-radius: 25px;
+	color: white;
+	background-color: red;
+	border: 3px double #555;
+	margin: 20px 0 50px 0;
+}
+
+.poleText{
+	width: 250px;
+	border-radius: 5px;
+	border: 3px double black;
+	margin: 20px 20px 10px 0;
+}
+
+.redirect {
+	display: block;
+	border-radius: 25px;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	background-color: forestgreen;
+	border: 3px double #555;
+	margin: 20px 0 50px 0;
+}
