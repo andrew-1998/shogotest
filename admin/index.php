@@ -34,7 +34,7 @@ function cards($allProducts) {
 		$currency    = $product->getCurrency();
 
 		echo "<div>";
-			echo "<a href= \"card.php?id=$id\" target=\"_blank\" class=\"card\">";
+			echo "<a href= \"card.php?id=$id&fullImgPath=$fullImgPath\" target=\"_blank\" class=\"card\">";
 		 		echo "<figure class=\"img_pic\">";
 	   				echo "<img src= \"$fullImgPath\" width=\"180\" class=\"img_pic\">";
 	   				echo "<figcaption>";
@@ -80,13 +80,13 @@ function db_connect () {
 	$result = mysqli_query($link1, "SELECT * FROM product");
 	$products = [];
 	while ($row = mysqli_fetch_assoc ($result)) {
-		$id         =(int)$row['id']; 
-		$name       =$row['name'];
-		$price      =(float)$row['price'];
-		$oldPrice   =(float)$row['price_old'];
-		$position   =(int)$row['position'];
-		$url        =$row['url'];
-		$currencyId =(int)$row['currency_id'];
+		$id         = (int)$row['id']; 
+		$name       = $row['name'];
+		$price      = (float)$row['price'];
+		$oldPrice   = (float)$row['price_old'];
+		$position   = (int)$row['position'];
+		$url        = $row['url'];
+		$currencyId = (int)$row['currency_id'];
 
 		$currencyRes = mysqli_query($link1, "SELECT cur_name FROM currency WHERE id=$currencyId");
 		$currencyRes = mysqli_fetch_assoc ($currencyRes);
