@@ -13,12 +13,13 @@ function db_connect () {
 	return $link;
 }
 
-$br = "<br>";	
+$br = "<br>";
 $id = htmlspecialchars($_GET["id"]);
+$id = (int)$id; //Нужно четко число
 $fullImgPath = htmlspecialchars($_GET["fullImgPath"]);
 
-//require_once('code/classes/simpleproduct.php');
-//require_once('code/classes/fullproduct.php');
+require_once('code/classes/simpleproduct.php');
+require_once('code/classes/fullproduct.php');
 
 $link1 = db_connect();
 
@@ -52,8 +53,10 @@ $typeRes = mysqli_query($link1, "SELECT name FROM product_type WHERE id=$typeId"
 $typeRes = mysqli_fetch_assoc ($typeRes);
 $type = $typeRes['name'];
 
-//$card = new FullProduct($id, $name, $url, $currency, $price, $oldPrice, $position, 
-//    $articul, $notice, $content, $section, $type);
+$card = new FullProduct($id, $name, $url, $currency, $price, $oldPrice, $position, 
+    $articul, $notice, $content, $section, $type);
+
+$name = $card->getName();
 
 mysqli_close ($link1);
 
@@ -68,15 +71,17 @@ mysqli_close ($link1);
 	<title>Карточка товара</title>
 </head>
 <body>
-<h1>Информация о товаре</h1>
-<div class="container">	
+<div class="container">
 	<div align="center"> <!-- Избежать выравнивания блоков по горизонтали -->
-	<img src="<?= $fullImgPath ?>" alt="<?= $pName ?>" class="full_pic"><br>
-	<p> <?= $id.".".$name.$br.$price." руб."; ?></p>
+	<h1>Информация о товаре</h1>
+	<img src="<?= $fullImgPath ?>" class="full_pic"><br>
+	<p> <?= "$id. $name.$br $price $currency"; ?></p>
+	<p> <?= "$notice $br $content"; ?></p>
+	<p> <?= "Тип сделки: $type $br Секция: $section"; ?></p>
 	</div>
 </div>
 <div class="container" align="center">
-	<a class="redirect" href="index.php" color="red">Вернуться к выбору товара</a>
+	<a class="redirect" href="index.php">Вернуться к выбору товара</a>
 </div>
 
 </body>

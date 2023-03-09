@@ -29,13 +29,13 @@ class FullProduct extends SimpleProduct
         string $type
     ){
         parent::__construct(
-        int $id,
-        string $name,
-        string $url,
-        string $currency,
-        float $price,
-        float $oldPrice,
-        int $position
+        $id,
+        $name,
+        $url,
+        $currency,
+        $price,
+        $oldPrice,
+        $position
     );
         $this->articul = $articul;
         $this->notice  = $notice;
